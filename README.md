@@ -49,9 +49,9 @@ chmod +x Installer.sh
 
 Windows 环境：检测到  MINGW 、 CYGWIN  或  MSYS  时，生成  Genshin_Windows_Installer.bat  并在独立窗口中自动运行，下载 PC 版启动器。
 
-Linux / Android 环境：检测到  Linux  时，根据  uname -m  的返回值判断架构。x86_64 下载 PC 启动器，ARM64 下载 Android APK，并在下载后通过  am start  唤起安装界面。
+Linux / Android 环境：检测到  Linux  时，根据  ``uname -m``  的返回值判断架构。x86_64 下载 PC 启动器，ARM64 下载 Android APK，并在下载后通过  am start  唤起安装界面。
 
-其他系统：无法识别的系统将触发兜底逻辑，提示并跳转至  https://ys.mihoyo.com/ 。
+其他系统：无法识别的系统将触发兜底逻辑，提示并跳转至  https://ys.mihoyo.com/
 
 
 ## 注意事项
