@@ -47,16 +47,16 @@ chmod +x Installer.sh
 
 ## 运行逻辑说明
 
-Windows 环境：检测到  MINGW 、 CYGWIN  或  MSYS  时，生成  Genshin_Windows_Installer.bat  并在独立窗口中自动运行，下载 PC 版启动器。
+Windows 环境：检测到``MINGW``、``CYGWIN``或``MSYS``时，生成 ``Genshin_Windows_Installer.bat``并在独立窗口中自动运行，下载 PC 版启动器。
 
-Linux / Android 环境：检测到  Linux  时，根据  ``uname -m``  的返回值判断架构。x86_64 下载 PC 启动器，ARM64 下载 Android APK，并在下载后通过  am start  唤起安装界面。
+Linux / Android 环境：检测到``Linux``时，根据  ``uname -m``  的返回值判断架构。x86_64 下载 PC 启动器，ARM64 下载 Android APK，并在下载后通过``am start``唤起安装界面。
 
-其他系统：无法识别的系统将触发兜底逻辑，提示并跳转至  https://ys.mihoyo.com/
+其他系统：无法识别的系统将触发兜底逻辑，提示并跳转至 [米哈游](https://ys.mihoyo.com/)
 
 
 ## 注意事项
 
-Termux 权限：在 Android 上自动唤起安装界面时，请确保已在系统设置中允许“安装未知应用”。
+权限：在 Android 上自动唤起安装界面时，请确保已在系统设置中允许“安装未知应用”。
 
 启动器限制：脚本仅自动下载并打开“启动器安装包”。完整的几十 GB 游戏资源需要玩家在启动器内手动点击下载。
 
