@@ -37,3 +37,11 @@
 python test.py
 ```
 
+2. 运行安装脚本
+
+赋予脚本执行权限并运行：
+```
+chmod +x Installer.sh
+./Install.sh
+```
+
