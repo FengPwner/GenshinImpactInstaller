@@ -1,8 +1,7 @@
 #!/bin/bash
 
 # ==========================================
-# Genshin Impact Global Installer
-# ==========================================
+
 
 BAT_FILENAME="Genshin_Global_Windows_Installer.bat"
 
