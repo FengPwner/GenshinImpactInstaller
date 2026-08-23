@@ -20,9 +20,9 @@
 
 ##  文件结构
 
- Install.sh ：主安装脚本，负责环境检测、下载与安装唤起。
+ Install_CN.sh ：主安装脚本，负责环境检测、下载与安装唤起。
 
- test.py ：链接验证工具，用于在安装前检查官方 API 是否有效。
+ test_CN.py ：链接验证工具，用于在安装前检查官方 API 是否有效。
 
  README.md ：项目说明文档。
 
@@ -34,22 +34,22 @@
 
 在运行安装脚本前，建议先验证官方链接是否可用：
 ```
-python test.py
+python test_CN.py
 ```
 
 2. 运行安装脚本
 
 赋予脚本执行权限并运行：
 ```
-chmod +x Installer.sh
-./Install.sh
+chmod +x Installer_CN.sh
+./Install_CN.sh
 ```
 
 ## 运行逻辑说明
 
 Windows 环境：检测到``MINGW``、``CYGWIN``或``MSYS``时，生成 ``Genshin_Windows_Installer.bat``并在独立窗口中自动运行，下载 PC 版启动器。
 
-Linux / Android 环境：检测到``Linux``时，根据  ``uname -m``  的返回值判断架构。x86_64 下载 PC 启动器，ARM64 下载 Android APK，并在下载后通过``am start``唤起安装界面。
+Linux / Android 环境：检测到Linux时，根据  ``uname -m``  的返回值判断架构。x86_64 下载 PC 启动器，ARM64 下载 Android APK，并在下载后通过``am start``唤起安装界面。
 
 其他系统：无法识别的系统将触发兜底逻辑，提示并跳转至 [米哈游](https://ys.mihoyo.com/)
 
