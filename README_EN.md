@@ -43,16 +43,16 @@ python test_NoCN.py
 
 Grant execution permission to the script and run:
 ```
-chmod +x install_genshin.sh
-./install_genshin.sh
+chmod +x Installer_NoCN.sh
+./Install_NoXN.sh
 ```
 ## Execution Logic
 
 Windows Environment: When``MINGW``,``CYGWIN``, or``MSYS``is detected, it generates``Genshin_Windows_Installer.bat``and runs it automatically in a separate window to download the PC launcher.
 
-Linux / Android Environment: When  Linux  is detected, it determines the architecture based on the return value of  uname -m . x86_64 downloads the PC launcher, ARM64 downloads the Android APK, and triggers the installation interface via``am start``after downloading.
+Linux / Android Environment: When  Linux  is detected, it determines the architecture based on the return value of ``uname -m``. x86_64 downloads the PC launcher, ARM64 downloads the Android APK, and triggers the installation interface via``am start``after downloading.
 
-Other Systems: Unrecognized systems will trigger the fallback logic, prompting and redirecting to  https://ys.mihoyo.com/ .
+Other Systems: Unrecognized systems will trigger the fallback logic, prompting and redirecting to  [米哈游_CN](https://ys.mihoyo.com/)
 
 
 ## Important Notes
