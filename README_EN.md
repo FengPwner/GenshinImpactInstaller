@@ -36,3 +36,29 @@ Native Python Validator: Includes a URL validation script written in pure native
 1. Validate Download Links (Optional)
 
 Before running the installation script, it is recommended to verify if the official links are available:
+```
+python test_NoCN.py
+```
+2. Run Installation Script
+
+Grant execution permission to the script and run:
+```
+chmod +x install_genshin.sh
+./install_genshin.sh
+```
+## Execution Logic
+
+Windows Environment: When``MINGW``,``CYGWIN``, or``MSYS``is detected, it generates``Genshin_Windows_Installer.bat``and runs it automatically in a separate window to download the PC launcher.
+
+Linux / Android Environment: When  Linux  is detected, it determines the architecture based on the return value of  uname -m . x86_64 downloads the PC launcher, ARM64 downloads the Android APK, and triggers the installation interface via``am start``after downloading.
+
+Other Systems: Unrecognized systems will trigger the fallback logic, prompting and redirecting to  https://ys.mihoyo.com/ .
+
+
+## Important Notes
+
+Permissions: When auto-triggering the installation interface on Android, please ensure you have allowed to "Install unknown apps" in system settings.
+
+Launcher Limitation: The script only automatically downloads and opens the "Launcher Installer". The full game resources (tens of GBs) require players to manually click download within the launcher.
+
+Security Warning: Do not modify the official API links in the script to avoid downloading tampered malicious files.
