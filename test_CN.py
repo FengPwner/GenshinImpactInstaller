@@ -17,15 +17,10 @@ def check_url(name, url):
     try:
         req = urllib.request.Request(url, method='GET') 
         
-        req.add_header('User-Agent', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36')
-        
-        
+        req.add_header('User-Agent', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36')                
         
         response = urllib.request.urlopen(req, timeout=10)
-        
-        
-        
-        
+                                
         response.close()
         
         print(f"[√] 成功! 链接有效且可访问。\n")
