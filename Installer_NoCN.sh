@@ -1,18 +1,12 @@
 #!/bin/bash
 
-# ==========================================
-
-
 BAT_FILENAME="Genshin_Global_Windows_Installer.bat"
-
 
 URL_X86_64="https://sg-download-porter.hoyoverse.com/event/download_porter/link/genshin/official/pc_default"
 URL_ARM="https://sg-download-porter.hoyoverse.com/event/download_porter/link/genshin/official/android_default"
 OFFICIAL_WEBSITE="https://genshin.hoyoverse.com/"
 
 OS_TYPE=$(uname -s)
-
-# ==========================================
 
 if [[ "$OS_TYPE" == MINGW* ]] || [[ "$OS_TYPE" == CYGWIN* ]] || [[ "$OS_TYPE" == MSYS* ]]; then
     echo ">>> Detected Windows environment. Generating $BAT_FILENAME ..."
@@ -43,8 +37,6 @@ EOF
     cmd.exe /c start "" "$BAT_FILENAME"
     exit 0
 
-# ==========================================
-
 elif [[ "$OS_TYPE" == "Linux" ]]; then
     ARCH=$(uname -m)
     
@@ -69,7 +61,6 @@ elif [[ "$OS_TYPE" == "Linux" ]]; then
         fi
         exit 1
     fi
-
     
     if command -v curl &> /dev/null; then
         curl -L -o "$FILENAME" "$TARGET_URL"
@@ -79,7 +70,6 @@ elif [[ "$OS_TYPE" == "Linux" ]]; then
         echo ">>> Error: Neither curl nor wget found. Please install one of them."
         exit 1
     fi
-
     
     if [ -f "$FILENAME" ]; then
         echo "[SUCCESS] Download complete: $FILENAME"
