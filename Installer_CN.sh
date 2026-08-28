@@ -1,21 +1,15 @@
 #!/bin/bash
 
-# ==========================================
-
 BAT_FILENAME="Genshin_Windows_Installer.bat"
 URL_X86_64="https://ys-api.mihoyo.com/event/download_porter/link/ys_cn/official/pc_default"
 URL_ARM="https://ys-api.mihoyo.com/event/download_porter/link/ys_cn/official/android_default"
 OFFICIAL_WEBSITE="https://ys.mihoyo.com/"
 
-
 OS_TYPE=$(uname -s)
-
-# ==========================================
 
 if [[ "$OS_TYPE" == MINGW* ]] || [[ "$OS_TYPE" == CYGWIN* ]] || [[ "$OS_TYPE" == MSYS* ]]; then
     echo ">>> 检测到 Windows 环境，正在生成 $BAT_FILENAME ..."
     
-
     cat > "$BAT_FILENAME" <<EOF
 @echo off
 chcp 65001 >nul
@@ -37,17 +31,13 @@ if %errorlevel% equ 0 (
 pause
 EOF
 
-    echo ">>> 生成成功！正在自动运行..."
-    
+    echo ">>> 生成成功！正在自动运行..."   
 
     WIN_BAT_PATH=$(cygpath -w "$BAT_FILENAME")
     cmd.exe /c start "" "$WIN_BAT_PATH"
     
     exit 0
 fi
-
-# ==========================================
-
 
 if [[ "$OS_TYPE" == "Linux" ]]; then
     echo ">>> 正在检测当前设备的处理器架构..."
@@ -77,15 +67,13 @@ if [[ "$OS_TYPE" == "Linux" ]]; then
     if [ $? -eq 0 ]; then
         echo ">>> 下载完成！文件保存为: $FILENAME"
         
-
         if [[ "$FILENAME" == *.apk ]]; then
             echo ">>> 正在唤起安卓系统安装界面..."
             
             APK_PATH=$(pwd)/$FILENAME
             am start -a android.intent.action.VIEW -d "file://$APK_PATH" -t application/vnd.android.package-archive
         fi
-        
-        
+                
         if [[ "$FILENAME" == *.sh || "$FILENAME" == *.AppImage ]]; then
             chmod +x "$FILENAME"
             echo ">>> 已赋予执行权限，你可以通过 ./$FILENAME 运行。"
@@ -96,13 +84,9 @@ if [[ "$OS_TYPE" == "Linux" ]]; then
     exit 0
 fi
 
-# ==========================================
-
-
 echo ">>> 警告：无法识别当前操作系统 ($OS_TYPE)。"
 echo ">>> 脚本将不会执行任何操作。"
 echo ">>> 正在准备跳转到《原神》官方网站..."
-
 
 if command -v xdg-open > /dev/null 2>&1; then
     xdg-open "$OFFICIAL_WEBSITE" &
@@ -111,7 +95,6 @@ elif command -v open > /dev/null 2>&1; then
 else
     echo ">>> 无法自动打开浏览器，请手动访问: $OFFICIAL_WEBSITE"
 fi
-
 
 echo ">>> 5秒后脚本将自动退出..."
 sleep 5
