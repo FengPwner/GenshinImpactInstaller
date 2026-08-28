@@ -10,8 +10,7 @@ OS_TYPE=$(uname -s)
 
 if [[ "$OS_TYPE" == MINGW* ]] || [[ "$OS_TYPE" == CYGWIN* ]] || [[ "$OS_TYPE" == MSYS* ]]; then
     echo ">>> Detected Windows environment. Generating $BAT_FILENAME ..."
-    
-    # Create a temporary batch file for Windows execution
+        
     cat > "$BAT_FILENAME" <<EOF
 @echo off
 echo ==========================================
