@@ -72,8 +72,7 @@ elif [[ "$OS_TYPE" == "Linux" ]]; then
     
     if [ -f "$FILENAME" ]; then
         echo "[SUCCESS] Download complete: $FILENAME"
-        
-        # Try to open the file automatically
+               
         if [[ "$ARCH" == "aarch64" ]] || [[ "$ARCH" == "arm64" ]]; then
             if command -v am &> /dev/null; then
                 echo ">>> Triggering Android Package Installer..."
