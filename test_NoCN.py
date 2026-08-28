@@ -2,7 +2,6 @@ import urllib.request
 import urllib.error
 import time
 
-
 URLS = {
     "PC Launcher (x86_64)": "https://sg-download-porter.hoyoverse.com/event/download_porter/link/genshin/official/pc_default",
     "Android APK (ARM64)": "https://sg-download-porter.hoyoverse.com/event/download_porter/link/genshin/official/android_default"
